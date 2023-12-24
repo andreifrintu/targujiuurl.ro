@@ -44,6 +44,23 @@ a:hover {
     opacity: 80%;
     transition: .2s;
 }
+a.nav-link, a.nav-link:active, a.nav-link:focus {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--albastru) !important;
+	  border-radius: 7px;
+    transition: .2s;
+}
+a.nav-link:hover {
+    color: var(--galben) !important;
+    background: #e9ecef;
+    border-radius: 7px;
+    transition: .2s;
+}
+/* Text align justify */
+.text-justify {
+	text-align: justify !important;
+}
 
 /* Hero section */
 .hero {
@@ -60,6 +77,31 @@ a:hover {
     background-image: url('background-4.svg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+/* Diagonal sections */
+.diagonal {
+    min-height: 50vh;
+    background: url('background-2.svg');
+    background-size: cover;
+    background-position: center;
+    color: var(--galben);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: skewY(-3deg);
+    border-top: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+.diagonal_sec {
+    transform: skewY(3deg) !important;
+}
+.rev-diagonal {
+    text-underline-offset: 8px;
+    transform: skewY(3deg);
+}
+.rev-diagonal_sec {
+    text-underline-offset: 8px;
+    transform: skewY(-3deg);
 }
 
 /* Body background */
