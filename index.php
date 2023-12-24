@@ -35,6 +35,10 @@
 </head>
 <body class="middle">
     
+    <div class="loader-container">
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>
+
     <section class="hero mb-3">
         <nav class="navbar bg-white w-100 d-flex align-items-center justify-content-center pt-5">
             <img alt="" src="static/logo/color.png" height="75px">
@@ -224,6 +228,13 @@
             <h5 class="text-white text-center">Dezvoltat de <a target="_blank" href="https://codulluiandrei.ro/">@andreifrintu</a></h5>
         </div>
     </section>
+
+    <script>
+        const loaderContainer = document.querySelector('.loader-container');
+        window.addEventListener('load', () => {
+            loaderContainer.style.display = 'none';
+        });
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
