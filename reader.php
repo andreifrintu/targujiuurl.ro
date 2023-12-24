@@ -5,8 +5,8 @@
         Website developed by Andrei Frîntu
         Critical maintenance @ codulluiandrei.ro
 
-        Version:    1.1@main:targujiuurl.ro
-        Stage:      dev@localhost
+        Version:    1.3@main:targujiuurl.ro
+        Stage:      testing@subdomain
         Contact:    admin@codulluiandrei.ro
 
     */   
