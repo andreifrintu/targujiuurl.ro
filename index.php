@@ -87,6 +87,93 @@
                 </select>
             </p>
         </div>
+
+        <div class="d-flex flex-column fl-cont fs-3 p-2">
+<?php
+            
+                $year = (isset($_GET['y'])) ? $_GET['y'] : 2023;
+                $month = (isset($_GET['m'])) ? $_GET['m'] : 12;
+                $date = 1;
+                
+                $day = date('w', strtotime($year . "-" . $month . "-" . $date));
+                switch($day) {
+                    case 0 : $day = 7; break;
+                    case 1 : $day = 1; break;
+                    case 2 : $day = 2; break;
+                    case 3 : $day = 3; break;
+                    case 4 : $day = 4; break;
+                    case 5 : $day = 5; break;
+                    case 6 : $day = 6;
+                }
+                $last = 1;
+                $lastday = date('t', strtotime($year . "-" . $month . "-01")) + $day;
+?>
+            <div class="fl-cont flex-sm-row text-center text-white d-sm-none">
+                <div class="w-100 rounded" style="text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);">LUNI</div>
+                <div class="w-100 rounded" style="text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);">MARȚI</div>
+                <div class="w-100 rounded" style="text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);">MIERCURI</div>
+                <div class="w-100 rounded" style="text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);">JOI</div>
+                <div class="w-100 rounded" style="text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);">VINERI</div>
+                <div class="w-100 rounded" style="text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);">SÂMBĂTĂ</div>
+                <div class="w-100 rounded" style="text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);">DUMINICĂ</div>
+            </div><div class="d-flex fl-cont flex-sm-row">
+<?php
+        
+                $activities_array = array();
+                class Activity {
+                    public $title, $cover, $content, $duration, $url;
+                };
+
+                $query = mysqli_query($conn, "SELECT `url`, `cover`, `duration`, `date` FROM `activities` WHERE `month` = $month ORDER BY `date`");            
+                while ($db = mysqli_fetch_assoc($query)) {
+                    $activity_object = new Activity();
+                    
+                    $url = $db['url'];
+                    $cover = $db['cover'];
+                    $duration = $db['duration'];
+                    $date = $db['date'];                 
+                    
+                    $activity_object->url = $url;
+                    $activity_object->cover = $cover;
+                    $activity_object->duration = $duration;
+                    $activities_array[$date] = $activity_object;
+                }
+                
+                while ($last < $day) {
+                    echo '<div class="bg-dark w-100 p-5 card rounded invisible">' . $last . '</div>';
+                    $last = $last + 1;
+                }
+
+                while ($last < $lastday) {
+                    $free = 1;  
+                    if ($activities_array[$last - $day + 1]->cover != '') {
+                        if ($activities_array[$last - $day + 1]->duration <= 1)
+                            echo '<a class="w-100 p-5 card border border-white rounded mb-3 bg-transparent fs-2" href="' . $activities_array[$last - $day + 1]->url . '/" style="background-image: url(' . $activities_array[$last - $day + 1]->cover . ');">' . ($last - $day + 1) . '</a>';
+                        else {
+                            
+                            for ($i = 1; $i <= $activities_array[$last - $day + 1]->duration && $free < $activities_array[$last - $day + 1]->duration; $i = $i + 1)
+                                if ($activities_array[$last - $day + 1 + $i]->cover != '')
+                                    break;
+                                else 
+                                    $free = $free + 1;
+                                    
+                            echo '<a class="w-100 p-5 card border border-white rounded mb-3 bg-transparent fs-2" href="' . $activities_array[$last - $day + 1]->url . '/" style="flex-grow: ' . $free . '; background-image: url(' . $activities_array[$last - $day + 1]->cover . ');">' . ($last - $day + 1 . " - " . ($last - $day + $activities_array[$last - $day + 1]->duration)) . '</a>';
+                        }
+                    }
+                    else
+                        echo '<div class="w-100 p-5 card border border-white rounded mb-3 bg-transparent fs-2" style="background-image: url(static/logo/mono%20white.png);">' . ($last - $day + 1) . '</div>';
+                        
+                    if ($last % 7 == 0)
+                        echo '</div><div class="d-flex fl-cont flex-sm-row">';
+                    $duration = ($free) ? $free : (($activities_array[$last - $day + 1]->duration > 1) ? $activities_array[$last - $day + 1]->duration : 1);
+                    $last = $last + $duration;
+                    if (($last - 1) % 7 == 0)
+                        echo '</div><div class="d-flex fl-cont flex-sm-row">';
+                }
+?>
+            </div>
+        </div>
+
     </section>
 
     <div class="invisible p-5"></div>
