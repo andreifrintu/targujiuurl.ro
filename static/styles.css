@@ -118,6 +118,15 @@ option {
     box-shadow: inset 0px 0px 400px 200px rgba(0, 0, 0, .3);
     text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);
 }
+/* Login section */
+.login {
+    height: 100vh;
+    background-image: url('background.svg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 /* Diagonal sections */
 .diagonal {
     min-height: 50vh;
