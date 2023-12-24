@@ -59,6 +59,24 @@
 
     <div class="invisible p-5"></div>
 
+    <section class="footer justify-content-center align-items-center d-flex">
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-center align-items-center pb-3 mb-4 mt-5 pt-5">
+                <div class="col-md-4 d-flex align-items-center">
+                    <a href="/" class="mb-3 me-2 mb-md-0 text-white text-decoration-none lh-1"><img src="static/logo/mono white.png" height="80px"></a>
+                    <span class="mb-3 mb-md-0 text-white">&copy; 2023 Târgu Jiu URL</span>
+                </div>
+                
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a target="_blank" class="text-body-secondary" href="https://www.facebook.com/youthURL"><img src="static/icons/icons8-facebook-96.png" height="32px"></a></li>
+                    <li class="ms-3"><a target="_blank" class="text-body-secondary" href="https://www.instagram.com/targujiu_url"><img src="static/icons/icons8-instagram-96.png" height="32px"></a></li>
+                    <li class="ms-3"><a target="_blank" class="text-body-secondary" href="https://www.tiktok.com/@targujiu_url"><img src="static/icons/icons8-tiktok-96.png" height="32px"></a></li>
+                </ul>
+            </footer>
+            <h5 class="text-white text-center">Dezvoltat de <a target="_blank" href="https://codulluiandrei.ro/">@andreifrintu</a></h5>
+        </div>
+    </section>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
