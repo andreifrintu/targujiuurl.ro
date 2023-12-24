@@ -35,6 +35,18 @@
 </head>
 <body>
     
+    <section class="hero mb-3">
+        <nav class="navbar bg-white w-100 d-flex align-items-center justify-content-center pt-5">
+            <img alt="" src="static/logo/color.png" height="75px">
+        </nav>
+        <nav class="py-2 bg-body-tertiary border-top">
+            <ul class="nav me-auto d-flex justify-content-center">
+                <li class="nav-item"><a href="#misiune" class="nav-link link-body-emphasis px-3">Misiune</a></li>
+                <li class="nav-item"><a href="#activitati" class="nav-link link-body-emphasis px-3">Activități</a></li>
+                <li class="nav-item"><a href="#implica-te" class="nav-link link-body-emphasis px-3">Implică-te</a></li>
+            </ul>
+        </nav>
+    </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
