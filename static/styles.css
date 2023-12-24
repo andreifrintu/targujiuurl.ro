@@ -57,9 +57,33 @@ a.nav-link:hover {
     border-radius: 7px;
     transition: .2s;
 }
+option {
+	color: #253779;
+	font-weight: bold;
+}
+::placeholder {
+    color: var(--galben) !important;
+}
+
+/* Custom bootstrap classes */
 /* Text align justify */
 .text-justify {
 	text-align: justify !important;
+}
+.text-galben {
+	color: var(--galben) !important;
+}
+.d-sm-none {
+    display: flex;
+}
+.w-90 {
+    width: 90% !important;
+}
+.w-md-50 {
+    width: 50%;
+}
+.btn-outline-light:hover {
+    color: var(--galben) !important;
 }
 
 /* Hero section */
