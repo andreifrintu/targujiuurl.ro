@@ -48,6 +48,17 @@
         </nav>
     </section>
 
+    <div class="invisible p-5"></div>
+
+    <div class="diagonal" id="misiune">
+        <div class="rev-diagonal px-2 text-center">
+            <h1 class="fw-bold text-center fs-1 text-white">Care este misiunea noastră?</h1>
+            <p class="fs-3 w-75 m-auto">Prin proiectul nostru dorim să creăm o comunitate liberă și unită<wbr>pentru tinerii din oraș</p>
+        </div>
+    </div>
+
+    <div class="invisible p-5"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
