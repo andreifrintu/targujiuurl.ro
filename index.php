@@ -178,6 +178,35 @@
 
     <div class="invisible p-5"></div>
 
+    <div class="diagonal diagonal_sec p-5 mt-3" id="implica-te">
+        <div class="rev-diagonal_sec px-2 text-center">
+            <h1 class="fw-bold text-center fs-1 text-white">Implică-te în program!</h1>
+            <p class="fs-3 w-75 m-auto">Completează formular de mai jos și noi te vom contacta</p>
+            <?php
+            
+                if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['plan']) && isset($_POST['mesaj'])) {
+                    $name = mysqli_real_escape_string($conn, $_POST['name']);
+                    $mail = mysqli_real_escape_string($conn, $_POST['mail']);
+                    $plan = mysqli_real_escape_string($conn, $_POST['plan']);
+                    $mesaj = mysqli_real_escape_string($conn, $_POST['mesaj']);
+                    
+                    $mesaj_final = $name . " a trimis următoarele informații în formularul de înscriere: Mail: " . $mail . " Plan: " . $plan . " Mesaj: " . $mesaj;
+                    
+                    mail("frintu.andrei07@gmail.com", "O persoană nouă vrea să se implice!", $mesaj_final, "From: no-reply@codulluiandrei.ro");
+                    header("Location: /targujiuurl.ro/?trimis#implica-te");
+                }
+                
+            ?>
+            <form method="POST">
+                <input required name="name" type="text" class="form-control fw-bold mb-2" placeholder="Numele și prenumele tău...">
+                <input required name="mail" type="text" class="form-control fw-bold mb-2" placeholder="Adresa ta de E-mail...">
+                <input required name="plan" type="text" class="form-control fw-bold mb-2" placeholder="Care este planul tău pentru mâine?">
+                <textarea name="mesaj" class="form-control mb-2" placeholder="Mesajul tău..." style="height: 100px"></textarea>
+                <button type="submit" class="btn btn-lg btn-outline-light fw-bold">Trimite mesajul</button>
+            </form>
+        </div>
+    </div>
+
     <section class="footer justify-content-center align-items-center d-flex">
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-center align-items-center pb-3 mb-4 mt-5 pt-5">
