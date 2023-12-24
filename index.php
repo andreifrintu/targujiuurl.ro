@@ -59,6 +59,38 @@
 
     <div class="invisible p-5"></div>
 
+    <section class="" id="activitati">
+
+        <div class="invisible p-5"></div>
+        
+        <div class="text-center mt-3">
+            <h1 class="fw-bold" style="color: #fff;">ACTIVITĂȚILE NOASTRE</h1>
+            <p class="fs-3 d-flex fl-cont text-center justify-content-center align-items-center gap-2 text-white fw-bold">vizualizezi luna 
+                <select class="form-select form-select-lg text-center fs-3 text-white fw-bold" style="background: none; border: none; width: auto !important; padding: 0;">
+                    <option value="12" <?php echo ((isset($_GET['m']) && $_GET['m'] == 12) || (!isset($_GET['m']))) ? "selected" : ""; ?>>decembrie</option></a>
+                    <option value="11" <?php echo (isset($_GET['m']) && $_GET['m'] == 11) ? "selected" : ""; ?>>noiembrie</option>
+                    <option value="10" <?php echo (isset($_GET['m']) && $_GET['m'] == 10) ? "selected" : ""; ?>>octombrie</option>
+                    <option value="9" <?php echo (isset($_GET['m']) && $_GET['m'] == 9) ? "selected" : ""; ?>>septembrie</option>
+                    <option value="8" <?php echo (isset($_GET['m']) && $_GET['m'] == 8) ? "selected" : ""; ?>>august</option>
+                    <option value="7" <?php echo (isset($_GET['m']) && $_GET['m'] == 7) ? "selected" : ""; ?>>iulie</option>
+                    <option value="6" <?php echo (isset($_GET['m']) && $_GET['m'] == 6) ? "selected" : ""; ?>>iunie</option>
+                    <option value="5" <?php echo (isset($_GET['m']) && $_GET['m'] == 5) ? "selected" : ""; ?>>mai</option>
+                    <option value="4" <?php echo (isset($_GET['m']) && $_GET['m'] == 4) ? "selected" : ""; ?>>aprilie</option>
+                    <option value="3" <?php echo (isset($_GET['m']) && $_GET['m'] == 3) ? "selected" : ""; ?>>martie</option>
+                    <option value="2" <?php echo (isset($_GET['m']) && $_GET['m'] == 2) ? "selected" : ""; ?>>februarie</option>
+                    <option value="1" <?php echo (isset($_GET['m']) && $_GET['m'] == 1) ? "selected" : ""; ?>>ianuarie</option>
+                </select> 
+                a anului 
+                <select class="form-select form-select-lg text-center fs-3 text-white fw-bold" style="background: none; border: none; width: auto !important; padding: 0;">
+                    <option value="2023" <?php echo ((isset($_GET['y']) && $_GET['y'] == 2023) || (!isset($_GET['m']))) ? "selected" : ""; ?>>2023</option>
+                    <option value="2022" <?php echo (isset($_GET['y']) && $_GET['y'] == 2022) ? "selected" : ""; ?>>2022</option>
+                </select>
+            </p>
+        </div>
+    </section>
+
+    <div class="invisible p-5"></div>
+
     <section class="footer justify-content-center align-items-center d-flex">
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-center align-items-center pb-3 mb-4 mt-5 pt-5">
