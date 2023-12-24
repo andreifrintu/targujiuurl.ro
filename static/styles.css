@@ -102,6 +102,22 @@ option {
     background-repeat: no-repeat;
     background-size: cover;
 }
+/* Activity card */
+.card {
+    min-height: 200px;
+    flex-basis: calc((100% / 7)) !important;
+    flex-grow: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: inset 0px 0px 400px 200px rgba(0, 0, 0, .3);
+    text-shadow: 0 0 3px var(--galben), 0 0 5px var(--albastru);
+}
 /* Diagonal sections */
 .diagonal {
     min-height: 50vh;
