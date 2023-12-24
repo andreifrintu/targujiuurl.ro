@@ -5,7 +5,7 @@
         Website developed by Andrei Frîntu
         Critical maintenance @ codulluiandrei.ro
 
-        Version:    1.1@main:targujiuurl.ro
+        Version:    1.2@main:targujiuurl.ro
         Stage:      dev@localhost
         Contact:    admin@codulluiandrei.ro
 
@@ -33,7 +33,7 @@
     <link href="static/styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="middle">
     
     <section class="hero mb-3">
         <nav class="navbar bg-white w-100 d-flex align-items-center justify-content-center pt-5">

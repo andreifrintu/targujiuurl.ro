@@ -3,7 +3,7 @@
         Website developed by Andrei Frîntu
         Critical maintenance @ codulluiandrei.ro
 
-        Version:    1.1@main:targujiuurl.ro
+        Version:    1.2@main:targujiuurl.ro
         Stage:      dev@localhost
         Contact:    admin@codulluiandrei.ro
 
@@ -24,4 +24,50 @@
     font-weight: 600;
 	appearance: auto !important;
 	-webkit-appearance: auto !important;
+}
+
+/* Anchor */
+a {
+    color: var(--albastru) !important;
+    text-decoration: none !important;
+    transition: .2s;
+}
+a:hover > svg {
+    transition: .2s;
+    fill: #f7941d;
+}
+a > svg {
+    transition: .2s;
+}
+a:hover {
+    color: var(--albastru) !important;
+    opacity: 80%;
+    transition: .2s;
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    background-image: url('background-1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Footer section */
+.footer {
+	min-height: 50vh;
+    background-image: url('background-4.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Body background */
+.middle {
+    min-height: 100vh;
+    background-image: url('background-3.svg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
