@@ -21,23 +21,19 @@
     if (!$conn)
         echo "Conexiunea a eșuat!";
 
-    function text_to_url($text, string $divider = '-') {
+    function text_to_url($text) {
         $text = strtolower($text);
-        $text = str_replace("ț", "t", $text);
-        $text = str_replace("ș", "s", $text);
-        $text = str_replace("â", "a", $text);
-        $text = str_replace("ă", "a", $text);
-        $text = str_replace("î", "i", $text);
-        $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
-        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-        $text = preg_replace('~[^-\w]+~', '', $text);
-        $text = trim($text, $divider);
-        $text = preg_replace('~-+~', $divider, $text);
-        if (empty($text)) {
-            return 'n-a';
-        }
+        $search = ['ă', 'â', 'î', 'ș', 'ț', ' '];
+        $replace = ['a', 'a', 'i', 's', 't', '-'];
+        str_replace($search, $replace, $text);
         return $text;
     }
+    function text_to_latin1($text) {
+        $search = ['ă', 'â', 'î', 'ș', 'ț', 'Ă', 'Â', 'Î', 'Ș', 'Ț'];
+        $replace = ['__a__', '__aa__', '__i__', '__s__', '__t__', '__A__', '__AA__', '__I__', '__S__', '__T__'];
+        return str_replace($search, $replace, $text);
+    }
+
 
     if (isset($_SESSION['login']) && $_SESSION['login'] == 1) {
         $user = mysqli_real_escape_string($conn, $_SESSION['user']);
@@ -52,8 +48,8 @@
             if ($pass == $result['pass']) {
 
                 if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['date']) && isset($_POST['duration'])) {
+                    $url = mysqli_real_escape_string($conn, $_POST['title']);
                     $title = mysqli_real_escape_string($conn, $_POST['title']);
-                    $url = mysqli_real_escape_string($conn, text_to_url($title));
                     
                     $content = mysqli_real_escape_string($conn, $_POST['content']);
                     $duration = mysqli_real_escape_string($conn, $_POST['duration']);
@@ -77,14 +73,14 @@
 
 
                     $code = mysqli_real_escape_string($conn, sha1(mt_rand(100000, 999999)));
-                    $photo = "/targujiuurl.ro/static/photos/" . $code . ".jpg";
+                    $photo = "/static/photos/" . $code . ".jpg";
                 
                     if ($_FILES['cover']['error'] === UPLOAD_ERR_OK) {
                         $tempFile = $_FILES['cover']['tmp_name'];
                         $targetFile = $_SERVER['DOCUMENT_ROOT'] . $photo;
                         
                         if (move_uploaded_file($tempFile, $targetFile))
-                            mysqli_query($conn, "INSERT INTO `activities`(`title`, `cover`, `content`, `duration`, `day`, `date`, `month`, `year`) VALUES ('$title', '$photo', '$content', '$duration', '$day', '$date', '$month', '$year')");
+                            mysqli_query($conn, "INSERT INTO `activities`(`title`, `cover`, `content`, `url`, `duration`, `day`, `date`, `month`, `year`) VALUES ('$title', '$photo', '$content', '$url', '$duration', '$day', '$date', '$month', '$year')");
                     }
                 }
 ?>
@@ -94,9 +90,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin dashboard @ targujiuurl.ro</title>
-    <link rel="icon" type="image/x-icon" href="/targujiuurl.ro/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <link href="/targujiuurl.ro/static/styles.css" rel="stylesheet">
+    <link href="/static/styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tiny.cloud/1/9ud3yzwsyhmmz5ouf0oqcxnmco25qvzwdas39r4r8nqt1yee/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
