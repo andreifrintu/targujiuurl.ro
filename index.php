@@ -11,6 +11,9 @@
 
     */   
     
+    /* disable errors */
+    error_reporting(E_ERROR | E_PARSE);
+    
     /* database connection variables */
     include("admin/config.php");
           
@@ -45,7 +48,7 @@
         </nav>
         <nav class="py-2 bg-body-tertiary border-top">
             <ul class="nav me-auto d-flex justify-content-center">
-                <li class="nav-item"><a href="#misiune" class="nav-link link-body-emphasis px-3">Misiune</a></li>
+                <li class="nav-item"><a href="#despre-url" class="nav-link link-body-emphasis px-3">Despre URL</a></li>
                 <li class="nav-item"><a href="#activitati" class="nav-link link-body-emphasis px-3">Activități</a></li>
                 <li class="nav-item"><a href="#implica-te" class="nav-link link-body-emphasis px-3">Implică-te</a></li>
             </ul>
@@ -54,10 +57,11 @@
 
     <div class="invisible p-5"></div>
 
-    <div class="diagonal" id="misiune">
+    <div class="diagonal" id="despre-url">
         <div class="rev-diagonal px-2 text-center">
-            <h1 class="fw-bold text-center fs-1 text-white">Care este misiunea noastră?</h1>
-            <p class="fs-3 w-75 m-auto">Prin proiectul nostru dorim să creăm o comunitate liberă și unită<wbr>pentru tinerii din oraș</p>
+            <h1 class="fw-bold text-center fs-1 text-white">Care este scopul nostru?</h1>
+            <p class="fs-3 w-md-50 m-auto">Conceptul programului se numește <span class="fw-bold">YOUth URL</span> pentru că va pune pe hartă, atât fizic, cât și digital orașul Târgu-Jiu ca referință pentru tineri în 2023!</p>
+            <a href="despre-url/" class="m-auto"><button class="btn btn-lg m-auto btn-outline-light fw-bold mt-2">Află mai mult!</button></a>
         </div>
     </div>
 
@@ -194,10 +198,10 @@
                     $plan = mysqli_real_escape_string($conn, $_POST['plan']);
                     $mesaj = mysqli_real_escape_string($conn, $_POST['mesaj']);
                     
-                    $mesaj_final = $name . " a trimis următoarele informații în formularul de înscriere: Mail: " . $mail . " Plan: " . $plan . " Mesaj: " . $mesaj;
+                    $mesaj_final = $name . " a trimis urmatoarele informatii in formularul de inscriere: Mail: " . $mail . " Plan: " . $plan . " Mesaj: " . $mesaj;
                     
-                    mail("frintu.andrei07@gmail.com", "O persoană nouă vrea să se implice!", $mesaj_final, "From: no-reply@codulluiandrei.ro");
-                    header("Location: /targujiuurl.ro/?trimis#implica-te");
+                    mail("frintu.andrei07@gmail.com", "O persoana noua vrea sa se implice!", $mesaj_final, "From: no-reply@targujiuurl.ro");
+                    echo "<script>alert('Mesajul tău a fost trimis cu succes!')</script>";
                 }
                 
             ?>
